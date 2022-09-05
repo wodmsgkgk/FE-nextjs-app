@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import homeStyles from '../styles/Home.module.css'
 import { getSortedPostData } from '../lib/posts'
+import { GetStaticProps } from 'next'
 
 const Home = ({ allPostsData }: {
   allPostsData: {
@@ -44,8 +45,9 @@ const Home = ({ allPostsData }: {
 
 export default Home
 
-export const getStaticProps: GetStaticPros = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostData()
+  console.log("getStaticPaths : " + allPostsData)
   return {
     props: {
       allPostsData
